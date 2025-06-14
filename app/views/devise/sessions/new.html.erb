@@ -1,26 +1,58 @@
-<h2 class="text-2xl font-bold mb-6">Log in to your account</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
-  <div>
-    <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-    <%= f.email_field :email, autofocus: true, class: "mt-1 block w-full px-4 py-2 border rounded-md shadow-sm" %>
+  <!-- Left column: Login form -->
+  <div class="flex flex-col justify-center items-center px-8 py-12 bg-white">
+    <div class="w-full max-w-md">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back</h1>
+      <p class="text-sm text-gray-600 mb-6">Log in to your Briguila</p>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
+        <div>
+          <%= f.label :email, "Email or username", class: "block text-sm font-medium text-gray-700" %>
+          <%= f.email_field :email, autofocus: true, class: "mt-1 block w-full px-4 py-2 border rounded-md bg-gray-100 text-gray-800" %>
+        </div>
+
+        <div>
+          <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "mt-1 block w-full px-4 py-2 border rounded-md bg-gray-100 text-gray-800" %>
+        </div>
+
+        <div>
+          <%= f.submit "Continue", class: "w-full py-2 px-4 bg-black text-white rounded-md hover:bg-gray-900" %>
+        </div>
+      <% end %>
+
+      <div class="relative my-6">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-gray-300"></div>
+        </div>
+        <div class="relative flex justify-center text-sm">
+          <span class="bg-white px-2 text-gray-500">OR</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <button class="w-full flex items-center justify-center gap-2 py-2 px-4 border rounded-md hover:bg-gray-50">
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="h-5 w-5">
+          Continue with Google
+        </button>
+
+         <button class="w-full flex items-center justify-center gap-2 py-2 px-4 border rounded-md hover:bg-gray-50">
+          <img src="https://www.svgrepo.com/show/448224/facebook.svg" alt="Google" class="h-5 w-5">
+          Continue with Facebook
+        </button>
+      </div>
+
+      <div class="mt-6 text-center text-sm text-gray-600 space-x-2">
+        <%= link_to "Forgot password?", new_password_path(resource_name), class: "text-purple-600 hover:underline" %>
+        <span class="text-gray-300">•</span>
+        <span class="text-purple-600 hover:underline cursor-pointer">Forgot username?</span>
+      </div>
+
+      <p class="mt-4 text-sm text-center">
+        Don’t have an account?
+        <%= link_to "Sign up", new_registration_path(resource_name), class: "text-indigo-600 hover:underline" %>
+      </p>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "mt-1 block w-full px-4 py-2 border rounded-md shadow-sm" %>
-  </div>
-
-  <div>
-    <%= f.submit "Log in", class: "w-full py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700" %>
-  </div>
-<% end %>
-
-<div class="mt-4 text-sm text-center">
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-indigo-600 hover:underline" %>
-</div>
-
-<p class="mt-4 text-sm text-center">
-  Don’t have an account?
-  <%= link_to "Sign up", new_registration_path(resource_name), class: "text-indigo-600 hover:underline" %>
-</p>
+  
