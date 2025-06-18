@@ -5,31 +5,36 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- ✅ TailwindCSS build (DO NOT use app.css if tailwind.css is already built) -->
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%# Optional PWA manifest %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
+    <!-- Favicons -->
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <!-- 🛑 REMOVE this if youre using tailwind.css -->
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+  <body class="antialiased bg-white text-gray-900">
+   
 
+    <!-- Main Content -->
+    <main class="pt-20">
       <%= yield %>
-       <!-- Right column: Visuals -->
-      <div class="hidden md:block relative bg-gradient-to-br from-blue-500 to-lime-400">
-      </div>
-    </div>
+    </main>
+
 
   </body>
 

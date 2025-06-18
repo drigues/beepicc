@@ -1,7 +1,7 @@
-# 🌐 Beepi.cc — Open Bio-Link Page Platform (Ruby on Rails)
+# 🌐 Beepi.cc — Bio-Link Page Platform
 
 Beepi.cc is a clean, modern, and **free bio link manager** — built with **Ruby on Rails 7**, **Tailwind CSS**, and deployed on **Heroku**.  
-Creators can build customizable public link pages (like Linktree or Carrd) with support for analytics, profile editing, and responsive design.
+Creators can build customizable public link pages (like Linktree or Beacons) with support for analytics, profile editing, and responsive design.
 
 ---
 

@@ -1,8 +1,34 @@
 source "https://rubygems.org"
 
-# BRIGUILA
+# BEEPIC
 gem "devise"
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Authentication
+gem 'devise'
+gem 'omniauth'
+
+# Styling
+gem 'tailwindcss-rails'
+
+# Forms
+gem 'simple_form'
+
+# Interactivity
+gem 'stimulus-rails'
+gem 'turbo-rails'
+
+# Charts
+gem 'chartkick'
+gem 'groupdate'
+
+# Background jobs
+gem 'sidekiq'
+
+# File upload
+gem 'image_processing'
+gem 'aws-sdk-s3'
+
 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

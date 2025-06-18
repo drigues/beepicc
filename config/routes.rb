@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
+  root "pages#home"
+
   devise_for :users
 
-  authenticated :user do
-    root to: "dashboard#index", as: :authenticated_root
-  end
+  resource :dashboard, only: [:show]
+  get "/editor", to: "profiles#edit", as: :edit_profile
+  patch "/editor", to: "profiles#update"
 
-  unauthenticated :user do
-    devise_scope :user do
-      root to: "devise/sessions#new", as: :unauthenticated_root
-    end
-  end
+  get "/u/:username", to: "profiles#show", as: :public_profile
 
-  get "dashboard/index"
+  resource :analytics, only: [:show]
+  resource :settings, only: [:show, :update]
 
-  # Health check route (optional)
-  get "up" => "rails/health#show", as: :rails_health_check
+  match "*path", to: "errors#not_found", via: :all
 end
