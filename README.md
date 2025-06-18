@@ -1,24 +1,31 @@
-# README
+# 🌐 Beepi.cc — Open Bio-Link Page Platform (Ruby on Rails)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Beepi.cc is a clean, modern, and **free bio link manager** — built with **Ruby on Rails 7**, **Tailwind CSS**, and deployed on **Heroku**.  
+Creators can build customizable public link pages (like Linktree or Carrd) with support for analytics, profile editing, and responsive design.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## 🚀 Features
 
-* System dependencies
+- ✅ Public profile pages at `/username`
+- ✅ Add, edit, and reorder links
+- ✅ Avatar, name, bio, and social icons
+- ✅ Click tracking per link
+- ✅ Responsive design with Tailwind
+- ✅ Free forever with optional verified badge
 
-* Configuration
+---
 
-* Database creation
+## 🧰 Stack
 
-* Database initialization
+| Layer      | Tech                          |
+|------------|-------------------------------|
+| Backend    | Ruby on Rails 7 + PostgreSQL  |
+| Frontend   | ERB + Tailwind CSS            |
+| Auth       | Devise                        |
+| Deployment | Heroku                        |
+| CI/CD      | GitHub → Heroku pipeline      |
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+by 73912.xyz/thgo
