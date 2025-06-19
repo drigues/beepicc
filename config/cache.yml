@@ -1,5 +1,4 @@
 default: &default
-  store: memory_store
   store_options:
     max_size: <%= 256.megabytes %>
     namespace: <%= Rails.env %>
@@ -11,7 +10,6 @@ test:
   <<: *default
 
 production:
-  store: redis_cache_store
+  adapter: redis_cache_store
   url: <%= ENV["REDIS_URL"] %>
-  store_options:
-    namespace: <%= Rails.env %>
+  <<: *default

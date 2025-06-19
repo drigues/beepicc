@@ -1,12 +1,7 @@
 default: &default
-  dispatchers:
-    - polling_interval: 1
-      batch_size: 500
-  workers:
-    - queues: "*"
-      threads: 3
-      processes: <%= ENV.fetch("JOB_CONCURRENCY", 1) %>
-      polling_interval: 0.1
+  store_options:
+    max_size: <%= 256.megabytes %>
+    namespace: <%= Rails.env %>
 
 development:
   <<: *default
@@ -15,4 +10,6 @@ test:
   <<: *default
 
 production:
+  adapter: redis_cache_store
+  url: <%= ENV["REDIS_URL"] %>
   <<: *default
