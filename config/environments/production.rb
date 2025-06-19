@@ -11,6 +11,8 @@ Rails.application.configure do
     expires_in: 1.hour
   }
 
+  config.cache_store = :solid_cache_store
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
