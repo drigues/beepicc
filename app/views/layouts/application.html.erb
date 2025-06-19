@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Beepi.cc | One Page, All Links, Fully Yours - Link in Bio to be EPIC!" %></title>
+    <title>
+      <%= content_for(:title) || "Beepi.cc | One Page, All Links, Fully Yours – Link in Bio to be EPIC!" %>
+    </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <!-- ✅ TailwindCSS build (DO NOT use app.css if tailwind.css is already built) -->
-    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <!-- ✅ Main Tailwind build via tailwindcss-rails -->
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,21 +24,13 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <!-- 🛑 REMOVE this if youre using tailwind.css -->
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-
     <%= javascript_importmap_tags %>
   </head>
 
   <body class="antialiased bg-white text-gray-900">
-   
-
     <!-- Main Content -->
     <main class="pt-20">
       <%= yield %>
     </main>
-
-
   </body>
-
 </html>
