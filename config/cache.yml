@@ -1,7 +1,8 @@
 default: &default
-  store: redis_cache_store
-  url: <%= ENV["REDIS_URL"] %>
-  namespace: beepicc-cache
+  store: memory_store
+  store_options:
+    max_size: <%= 256.megabytes %>
+    namespace: <%= Rails.env %>
 
 development:
   <<: *default
@@ -10,4 +11,7 @@ test:
   <<: *default
 
 production:
-  <<: *default
+  store: redis_cache_store
+  url: <%= ENV["REDIS_URL"] %>
+  store_options:
+    namespace: <%= Rails.env %>

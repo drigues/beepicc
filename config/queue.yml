@@ -16,4 +16,3 @@ test:
 
 production:
   <<: *default
-  # Remove connects_to or database config unless using separate DB
