@@ -8,6 +8,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem 'omniauth'
 
+gem "redis", "~> 4.0"
+
+
 # Styling
 gem 'tailwindcss-rails'
 

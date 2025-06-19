@@ -1,10 +1,8 @@
 default: &default
-  store: redis_cache_store
-  url: <%= ENV["REDIS_CACHE_URL"] %>
-  namespace: <%= Rails.env %>
-  compress: true
-  pool_size: 5
-  expires_in: 1.hour
+  store: memory_store
+  store_options:
+    max_size: <%= 256.megabytes %>
+    namespace: <%= Rails.env %>
 
 development:
   <<: *default
@@ -13,4 +11,8 @@ test:
   <<: *default
 
 production:
-  <<: *default
+  store: redis_cache_store
+  store_options:
+    url: <%= ENV["REDIS_URL"] %>
+    namespace: cache
+    expires_in: 1.hour
