@@ -2,13 +2,8 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-  config.cache_store = :redis_cache_store, {
-    url: ENV.fetch("REDIS_URL"),
-    connect_timeout: 30,
-    read_timeout: 0.2,
-    write_timeout: 0.2,
-    reconnect_attempts: 1
-  }
+  config.cache_store = :solid_cache_store
+
 
   # Settings specified here will take precedence over those in config/application.rb.
 
