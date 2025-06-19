@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class ProfilesController < ApplicationController
   def home
   end
 end
