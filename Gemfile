@@ -1,95 +1,72 @@
 source "https://rubygems.org"
 
-# BEEPIC
-gem "devise"
-gem 'dotenv-rails', groups: [:development, :test]
-
-# Authentication
-gem 'devise'
-gem 'omniauth'
-
-gem "redis", "~> 4.0"
-
-# Forms
-gem 'simple_form'
-
-# Interactivity
-gem 'stimulus-rails'
-gem 'turbo-rails'
-
-# Charts
-gem 'chartkick'
-gem 'groupdate'
-
-# Background jobs
-gem 'sidekiq'
-
-# File upload
-gem 'image_processing'
-gem 'aws-sdk-s3'
-
-
-
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+# Core
 gem "rails", "~> 8.0.2"
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
-# Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
-# Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "pg", "~> 1.1"
 gem "importmap-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
-# Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails", "~> 3.3.1"
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem "propshaft"
 gem "jbuilder"
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+# Hotwire
+gem "turbo-rails"
+gem "stimulus-rails"
+gem "tailwindcss-rails", "~> 3.3.1"
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+# Authentication
+gem "devise"
+gem "omniauth"
 
-# Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
-gem "solid_cache"
+# Background Jobs
 gem "solid_queue"
-gem "solid_cable"
+# ⚠️ Removed solid_cache since you are using Redis for cache
+# ⚠️ Removed solid_cable unless you are using ActionCable with DB-backed adapter
 
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+# Redis
+gem "redis", "~> 4.0"
 
-# Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
+# Caching (used in production.rb with Redis)
+# Already handled via config.cache_store = :redis_cache_store
+
+# Sidekiq (optional if using solid_queue instead)
+# Comment out unless you're actively using Sidekiq
+# gem "sidekiq"
+
+# File upload
+gem "image_processing"
+gem "aws-sdk-s3"
+
+# Forms
+gem "simple_form"
+
+# Charts
+gem "chartkick"
+gem "groupdate"
+
+# Deploy/Infra (optional)
 gem "kamal", require: false
-
-# Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+# Performance
+gem "bootsnap", require: false
+
+# Windows compatibility
+gem "tzinfo-data", platforms: %i[windows jruby]
+
+# Env config
+gem "dotenv-rails", groups: [:development, :test]
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "brakeman", require: false
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
 end
