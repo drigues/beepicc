@@ -12,7 +12,7 @@ gem "redis", "~> 4.0"
 
 
 # Styling
-gem 'tailwindcss-rails'
+gem 'tailwindcss-rails', "~> 3.3.1"
 
 # Forms
 gem 'simple_form'
