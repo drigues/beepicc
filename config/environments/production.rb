@@ -11,7 +11,10 @@ Rails.application.configure do
     expires_in: 1.hour
   }
 
-  config.cache_store = :solid_cache_store
+  config.cache_store = :redis_cache_store, {
+    url: ENV["REDIS_URL"],
+    namespace: "cache"
+  }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
