@@ -45,4 +45,7 @@ Rails.application.configure do
 
   # Uncomment and set your domain if needed:
   # config.hosts << "yourdomain.com"
+
+
+  config.active_storage.service = :cloudflare
 end

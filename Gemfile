@@ -34,7 +34,7 @@ gem "redis", "~> 4.0"
 
 # File upload
 gem "image_processing"
-gem "aws-sdk-s3"
+gem 'aws-sdk-s3', require: false
 
 # Forms
 gem "simple_form"

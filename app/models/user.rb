@@ -7,9 +7,12 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :links, dependent: :destroy
 
+  has_one_attached :avatar
+
   after_create :create_profile
 
   def create_profile
     Profile.create(user: self, name: self.name)
   end
 end
+  

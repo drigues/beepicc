@@ -1,2 +1,5 @@
 <!-- Example: pages/home.html.erb -->
 <h1>Welcome to Beepi.cc</h1>
+<% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar %>
+<% end %>
