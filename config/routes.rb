@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "migrations/run"
   # Homepage
   root "pages#home"
 
@@ -30,4 +31,8 @@ Rails.application.routes.draw do
 
   # Catch-all error route — must be LAST
   match "*path", to: "errors#not_found", via: :all
+
+  if Rails.env.production?
+    get "/run_migrations", to: "migrations#run"
+  end
 end
