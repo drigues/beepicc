@@ -1,0 +1,7 @@
+<nav class="sidebar">
+  <%= link_to 'Profile', edit_profile_path %>
+  <%= link_to 'Links', dashboard_path %>
+  <%= link_to 'Themes', edit_profile_path(anchor: 'themes') %>
+  <%= link_to 'Analytics', dashboard_path(anchor: 'analytics') %>
+  <%= link_to 'Settings', edit_user_registration_path %>
+</nav>

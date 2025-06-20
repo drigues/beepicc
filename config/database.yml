@@ -3,6 +3,16 @@ default: &default
   encoding: unicode
   pool: 5
 
+development:
+  <<: *default
+  database: beepi_development
+  username: postgres
+  password: 
+
+test:
+  <<: *default
+  database: beepi_test
+
 production:
   primary:
     adapter: postgresql

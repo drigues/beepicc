@@ -1,0 +1,17 @@
+<h2>Edit Profile</h2>
+
+<%= form_with model: @profile, url: profile_path, method: :patch do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+
+  <%= f.label :avatar_url %>
+  <%= f.text_field :avatar_url %>
+
+  <%= f.label :color_theme %>
+  <%= f.select :color_theme, options_for_select(["purple", "cyan", "pink"], @profile.color_theme) %>
+
+  <%= f.submit 'Save' %>
+<% end %>

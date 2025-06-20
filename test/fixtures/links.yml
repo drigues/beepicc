@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  title: MyString
+  url: MyString
+  link_type: MyString
+  position: 1
+  click_count: 1
+
+two:
+  user: two
+  title: MyString
+  url: MyString
+  link_type: MyString
+  position: 1
+  click_count: 1

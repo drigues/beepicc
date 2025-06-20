@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # Devise authentication
   devise_for :users
 
-  # Dashboard
-  resource :dashboard, only: [:show]
+  # Dashboard (using :index)
+  get "/dashboard", to: "dashboard#index", as: :dashboard
 
   # Profile Editor and Public Profile
   get "/editor", to: "profiles#edit", as: :edit_profile
@@ -17,14 +17,17 @@ Rails.application.routes.draw do
   resource :analytics, only: [:show]
   resource :settings, only: [:show, :update]
 
+  resources :links do
+    member do
+      post :track_click
+    end
+  end
+
   # Legal pages
   get "/terms",   to: "pages#terms"
   get "/privacy", to: "pages#privacy"
   get "/cookies", to: "pages#cookies"
 
-  # Catch-all error route — must be LAST and require ErrorsController to exist
-  # ⚠️ Comment this in until `ErrorsController` is defined
-  # match "*path", to: "errors#not_found", via: :all
+  # Catch-all error route — must be LAST
   match "*path", to: "errors#not_found", via: :all
-
 end

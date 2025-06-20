@@ -1,0 +1,10 @@
+<!-- app/views/dashboard/_link_preview.html.erb -->
+<div class="links-preview">
+  <% links.each do |link| %>
+    <div class="link-item">
+      <strong><%= link.title %></strong> - <%= link.url %> - <%= link.click_count %> clicks
+      <%= link_to 'Edit', edit_link_path(link), class: 'btn' %>
+      <%= link_to 'Delete', link_path(link), method: :delete, data: { confirm: 'Sure?' }, class: 'btn-danger' %>
+    </div>
+  <% end %>
+</div>
