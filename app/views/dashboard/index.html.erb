@@ -1,64 +1,35 @@
-<div class="flex min-h-screen bg-gray-100">
-
+<div class="flex flex-col md:flex-row min-h-screen bg-gray-100">
   <!-- Sidebar -->
-  <aside class="w-64 bg-white p-6 border-r">
-    <h1 class="text-xl font-bold mb-6 text-indigo-600">Beepi.cc</h1>
-    <nav class="space-y-4 text-sm text-gray-700">
-      <a href="#" class="block hover:text-indigo-500">🏠 Home</a>
-      <a href="#" class="block hover:text-indigo-500">🧑‍💼 My Beepi Page</a>
-      <a href="#" class="block hover:text-indigo-500">🔗 Edit Links</a>
-      <a href="#" class="block hover:text-indigo-500">🎨 Design</a>
-      <a href="#" class="block hover:text-indigo-500">📊 Insights</a>
-      <a href="#" class="block hover:text-indigo-500">⚙️ Settings</a>
-      <a href="#" class="block hover:text-indigo-500">🎁 Referrals</a>
-      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "px-3 py-1 text-sm rounded block hover:text-indigo-500" %>
-    
-      <hr class="my-2">
-      <span class="text-xs text-gray-400">Coming Soon</span>
-      <a href="#" class="block text-gray-400">💸 Monetization</a>
-      <a href="#" class="block text-gray-400">🔗 Social Integrations</a>
-    </nav>
+  <aside class="w-full md:w-64 bg-white p-4 border-r">
+    <h1 class="text-2xl font-bold text-indigo-600 mb-6">Beepi.cc</h1>
+    <%= render 'shared/sidebar' %>
   </aside>
 
-  <!-- Main -->
-  <main class="flex-1 p-8 space-y-10">
-
-    <!-- Top Bar -->
-    <div class="flex justify-between items-center">
+  <!-- Main Content -->
+  <main class="flex-1 p-4 sm:p-6 md:p-8 space-y-8">
+    <!-- Top Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
       <div>
-        <%= render 'shared/sidebar' %>
-
-        <div class="dashboard-main">
-          <h2 class="text-2xl font-bold">
-            Hello, <%= current_user.profile&.name.presence || current_user.email %> 👋
-          </h2>
-          <p class="text-gray-500">
-            Your public link: <code>beepi.cc/<%= current_user.directory %></code>
-          </p>
-
-          <%= render 'dashboard/stats', links: @links %>
-          <%= render 'dashboard/link_preview', links: @links %>
-        </div>
-
+        <h2 class="text-2xl font-bold">Hello, <%= current_user.profile&.name.presence || current_user.email %> 👋</h2>
+        <p class="text-sm text-gray-500">Your public link: <code>beepi.cc/<%= current_user.directory %></code></p>
       </div>
-      <div class="flex space-x-2">
+      <div class="mt-2 sm:mt-0 flex space-x-2">
         <button class="bg-gray-200 px-3 py-1 text-sm rounded">Copy</button>
         <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded">Share</button>
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "bg-red-500 text-white px-3 py-1 text-sm rounded" %>
       </div>
     </div>
 
-    <!-- Overview -->
-    <div class="grid grid-cols-3 gap-4">
+    <!-- Overview Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div class="bg-white p-4 rounded shadow">
-        <div class="flex justify-between text-sm text-gray-500 mb-2">
+        <div class="flex justify-between text-sm text-gray-500">
           <span>Total Views</span>
-          <select class="text-indigo-600 bg-transparent focus:outline-none">
+          <select class="bg-transparent focus:outline-none text-indigo-600">
             <option>7 Days</option>
             <option>30 Days</option>
           </select>
         </div>
-        <p class="text-3xl font-bold">0</p>
+        <p class="text-3xl font-bold mt-2">0</p>
       </div>
       <div class="bg-white p-4 rounded shadow">
         <span class="text-sm text-gray-500">Total Clicks</span>
@@ -71,31 +42,31 @@
     </div>
 
     <!-- Quick Stats -->
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div class="bg-white p-4 rounded shadow">
-        <div class="flex justify-between items-center mb-2">
+        <div class="flex justify-between items-center">
           <span class="font-semibold">My Links</span>
           <button class="text-indigo-600 text-sm">Add</button>
         </div>
-        <p class="text-2xl font-bold">0</p>
+        <p class="text-2xl font-bold mt-2">0</p>
       </div>
       <div class="bg-white p-4 rounded shadow">
-        <div class="flex justify-between items-center mb-2">
+        <div class="flex justify-between items-center">
           <span class="font-semibold">My Clicks</span>
           <button class="text-indigo-600 text-sm">View</button>
         </div>
-        <p class="text-2xl font-bold">0</p>
+        <p class="text-2xl font-bold mt-2">0</p>
       </div>
       <div class="bg-white p-4 rounded shadow">
-        <div class="flex justify-between items-center mb-2">
+        <div class="flex justify-between items-center">
           <span class="font-semibold">My Shares</span>
           <button class="text-indigo-600 text-sm">Share Now</button>
         </div>
-        <p class="text-2xl font-bold">0</p>
+        <p class="text-2xl font-bold mt-2">0</p>
       </div>
     </div>
 
-    <!-- Guided Onboarding -->
+    <!-- Onboarding -->
     <div class="bg-white p-6 rounded shadow">
       <h3 class="text-lg font-semibold mb-3">Your Start Guide</h3>
       <ol class="list-decimal list-inside text-sm text-gray-700 space-y-1">
@@ -106,17 +77,17 @@
       </ol>
     </div>
 
-    <div class="card bg-yellow-100 border border-yellow-400 text-yellow-800 p-4 rounded mb-4">
-  🚀 If you see this yellow box, Tailwind is working!
-</div>
+    <!-- Tailwind Test -->
+    <div class="bg-yellow-100 border border-yellow-400 text-yellow-800 p-4 rounded">
+      🚀 If you see this yellow box, Tailwind is working!
+    </div>
 
     <!-- Mobile Preview -->
     <div class="bg-white p-6 rounded shadow">
       <h3 class="text-lg font-semibold mb-3">Live Preview</h3>
-      <div class="w-[300px] h-[550px] border rounded-xl bg-gray-50 mx-auto flex items-center justify-center">
-        <p class="text-gray-400 text-sm">Your Beepi.cc page preview here</p>
+      <div class="w-full max-w-xs h-[550px] border rounded-xl bg-gray-50 mx-auto flex items-center justify-center">
+        <p class="text-gray-400 text-sm text-center">Your Beepi.cc page preview here</p>
       </div>
     </div>
-
   </main>
 </div>

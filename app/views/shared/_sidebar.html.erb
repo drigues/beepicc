@@ -1,7 +1,16 @@
-<nav class="sidebar">
-  <%= link_to 'Profile', edit_profile_path %>
-  <%= link_to 'Links', dashboard_path %>
-  <%= link_to 'Themes', edit_profile_path(anchor: 'themes') %>
-  <%= link_to 'Analytics', dashboard_path(anchor: 'analytics') %>
-  <%= link_to 'Settings', edit_user_registration_path %>
+<nav class="space-y-4 text-sm text-gray-700">
+  <a href="#" class="block hover:text-indigo-500">🏠 Home</a>
+  <a href="#" class="block hover:text-indigo-500">🧑‍💼 My Beepi Page</a>
+  <a href="#" class="block hover:text-indigo-500">🔗 Edit Links</a>
+  <a href="#" class="block hover:text-indigo-500">🎨 Design</a>
+  <a href="#" class="block hover:text-indigo-500">📊 Insights</a>
+  <a href="#" class="block hover:text-indigo-500">⚙️ Settings</a>
+  <a href="#" class="block hover:text-indigo-500">🎁 Referrals</a>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "px-3 py-1 text-sm rounded block hover:text-indigo-500" %>
+
+  <hr class="my-2">
+  <span class="text-xs text-gray-400">Coming Soon</span>
+  <a href="#" class="block text-gray-400">💸 Monetization</a>
+  <a href="#" class="block text-gray-400">🔗 Social Integrations</a>
 </nav>
+

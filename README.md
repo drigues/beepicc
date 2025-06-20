@@ -23,8 +23,8 @@ Creators can build customizable public link pages (like Linktree or Beacons) wit
 | Backend    | Ruby on Rails 7 + PostgreSQL  |
 | Frontend   | ERB + Tailwind CSS            |
 | Auth       | Devise                        |
-| Deployment | Heroku                        |
-| CI/CD      | GitHub → Heroku pipeline      |
+| Deployment | Render                        |
+| CI/CD      | GitHub → Render pipeline      |
 
 ---
 

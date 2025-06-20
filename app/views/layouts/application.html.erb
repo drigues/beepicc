@@ -4,46 +4,38 @@
     <title>
       <%= content_for(:title) || "Beepi.cc | One Page, All Links, Fully Yours – Link in Bio to be EPIC!" %>
     </title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <!-- ✅ Tailwind CSS via tailwindcss-rails -->
+    <!-- Tailwind CSS via tailwindcss-rails -->
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload", media: "all" %>
 
-
-
-    <!-- ✅ CSRF and Content-Security-Policy -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
 
-    <!-- Favicons -->
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <!-- ✅ Importmap for Turbo and Stimulus -->
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
   </head>
 
-  <body class="antialiased bg-white text-gray-900">
-    <!-- Flash Messages -->
+  <body class="antialiased bg-white text-gray-900 font-sans">
     <% if notice %>
-      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded m-4">
+      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded m-4 text-sm">
         <%= notice %>
       </div>
     <% end %>
 
     <% if alert %>
-      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded m-4">
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded m-4 text-sm">
         <%= alert %>
       </div>
     <% end %>
 
-    <!-- Main Content -->
     <main>
       <%= yield %>
     </main>
