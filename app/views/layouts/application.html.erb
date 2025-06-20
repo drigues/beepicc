@@ -9,7 +9,8 @@
     <meta name="mobile-web-app-capable" content="yes">
 
     <!-- ✅ Main Tailwind build via tailwindcss-rails -->
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload", media: "all" %>
+
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -24,11 +25,13 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+
   </head>
 
   <body class="antialiased bg-white text-gray-900">
     <!-- Main Content -->
-    <main class="pt-20">
+    <main>
       <%= yield %>
     </main>
   </body>

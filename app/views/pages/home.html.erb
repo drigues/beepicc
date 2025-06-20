@@ -20,7 +20,7 @@
     </header>
 
 <!-- Hero -->
-<section class="bg-gradient-to-br from-indigo-100 via-white to-lime-100 py-20 px-4 text-center">
+<section class="bg-gradient-to-br from-indigo-100 via-white to-lime-100 py-20 px-4 text-center pt-30">
   <div class="max-w-3xl mx-auto">
     <h1 class="text-5xl font-extrabold leading-tight text-gray-900 mb-4">Your Smart, Beautiful Link in Bio</h1>
     <p class="text-lg text-gray-600 mb-8">Claim your personalized <strong>beepi.cc</strong> link and showcase everything you do — all in one place.</p>
@@ -38,7 +38,7 @@
     <a href="#demo" class="text-sm text-blue-600 hover:underline">🔍 See Examples</a>
 
     <div class="mt-10">
-      <img src="/images/mockup-mobile.png" alt="Mobile Preview" class="mx-auto rounded-xl shadow-xl w-64">
+      <%= image_tag("mockup-mobile.png", alt: "Mobile Preview") %>
     </div>
   </div>
 </section>
@@ -51,12 +51,13 @@
       <div>
         <h3 class="text-xl font-semibold mb-2">1️⃣ Claim Your Link</h3>
         <p class="text-gray-600">Choose your unique username and sign up free.</p>
-        <img src="/images/mockup-1.png" alt="Mockup 1" class="mt-6 mx-auto rounded-lg shadow w-56">
+        <%= image_tag("mockup-1.png", alt: "Mockup 1", class: "mt-6 mx-auto rounded-lg shadow w-56") %>
+
       </div>
       <div>
         <h3 class="text-xl font-semibold mb-2">2️⃣ Add & Share</h3>
         <p class="text-gray-600">Add links, socials, and content — then share it everywhere.</p>
-        <img src="/images/mockup-2.png" alt="Mockup 2" class="mt-6 mx-auto rounded-lg shadow w-56">
+        <%= image_tag("mockup-2.png", alt: "Mockup 2", class: "mt-6 mx-auto rounded-lg shadow w-56") %>
       </div>
     </div>
   </div>
