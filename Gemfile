@@ -23,7 +23,7 @@ gem "solid_queue"
 # ⚠️ Removed solid_cable unless you are using ActionCable with DB-backed adapter
 
 # Redis
-gem "redis", "~> 4.0"
+gem "redis", "~> 5.4"
 
 # Caching (used in production.rb with Redis)
 # Already handled via config.cache_store = :redis_cache_store
