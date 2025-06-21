@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
 
   # ✅ Add this:
   def after_sign_in_path_for(resource)
-    dashboard_path
+    Rails.application.routes.url_helpers.dashboard_path
   end
 end

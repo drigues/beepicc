@@ -1,0 +1,54 @@
+<!-- app/views/profiles/templates/_neon.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= profile.name %></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #001f3f, #003366);
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen flex flex-col items-center px-4 py-8">
+  <div class="w-full max-w-md text-center">
+    <!-- Avatar -->
+    <div class="flex justify-center mb-4">
+      <img src="https://placekitten.com/200/200" alt="avatar" class="rounded-full border-4 border-teal-400 w-28 h-28 shadow-lg">
+    </div>
+
+    <!-- Name -->
+    <h1 class="text-2xl font-bold tracking-wide"><%= profile.name %></h1>
+    <p class="text-sm text-teal-200 mt-1">@beepicc</p>
+
+    <!-- Bio -->
+    <p class="text-sm text-teal-100 mt-4">
+      Digital explorer ✨ Inspiring links and ideas curated for creatives
+    </p>
+
+    <!-- Links -->
+    <div class="mt-8 space-y-4">
+      <% links.each do |link| %>
+        <a href="<%= link.url %>" target="_blank" class="block w-full px-6 py-3 rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 text-white font-semibold shadow-md hover:scale-[1.02] hover:brightness-110 transition">
+          <%= link.title %>
+        </a>
+      <% end %>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="#" class="hover:opacity-80"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" class="w-6 h-6"></a>
+      <a href="#" class="hover:opacity-80"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" class="w-6 h-6"></a>
+      <a href="#" class="hover:opacity-80"><img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" class="w-6 h-6"></a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-xs text-teal-300 mt-10">
+      Powered by <a href="https://beepi.cc" class="underline hover:text-white">beepi.cc</a>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,2 +1,18 @@
-<!-- Example: pages/home.html.erb -->
-<h1>Welcome to Beepi.cc</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Profile Not Found</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 flex items-center justify-center min-h-screen p-6">
+  <div class="text-center">
+    <h1 class="text-5xl font-bold mb-4">404</h1>
+    <p class="text-xl mb-6">Oops! This profile does not exist.</p>
+    <a href="<%= root_path %>" class="inline-block px-5 py-2 bg-black text-white rounded hover:bg-gray-800 transition">
+      Go to homepage
+    </a>
+  </div>
+</body>
+</html>

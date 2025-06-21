@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_20_200055) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_21_124338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -63,6 +63,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_20_200055) do
     t.jsonb "social_links"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "directory"
+    t.string "theme"
+    t.index ["directory"], name: "index_profiles_on_directory", unique: true
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

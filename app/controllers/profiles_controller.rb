@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def edit
     @profile = current_user.profile || current_user.build_profile
@@ -15,12 +15,22 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @profile = Profile.find_by(directory: params[:directory])
+
+    if @profile.nil?
+      render "errors/not_found", status: :not_found, layout: false
+      return
+    end
+
+    @user = @profile.user
+    @links = @user.links.order(:position)
   end
+
 
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :avatar_url, :color_theme, social_links: [])
+    params.require(:profile).permit(:name, :bio, :avatar_url, :color_theme, :theme, social_links: [])
   end
+
 end

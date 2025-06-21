@@ -1,5 +1,10 @@
-<!-- Example: pages/home.html.erb -->
-<h1>Welcome to Beepi.cc</h1>
-<% if @user.avatar.attached? %>
-  <%= image_tag @user.avatar %>
+<%# app/views/profiles/show.html.erb %>
+<% case @profile.theme %>
+
+<% when "neon" %>
+  <%= render "profiles/templates/neon", profile: @profile, user: @user, links: @links %>
+<% when "classic" %>
+  <%= render "profiles/templates/classic", profile: @profile, user: @user, links: @links %>
+<% else %>
+  <%= render "profiles/templates/minimal", profile: @profile, user: @user, links: @links %>
 <% end %>
