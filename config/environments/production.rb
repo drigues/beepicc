@@ -15,7 +15,7 @@ Rails.application.configure do
 
   # SSL
   config.assume_ssl = true
-  config.force_ssl = true
+  config.force_ssl = ENV["FORCE_SSL"] == "true"
 
   # Logging
   config.log_tags = [:request_id]
